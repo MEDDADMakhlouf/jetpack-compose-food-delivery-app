@@ -2,10 +2,8 @@ package com.example.fooddelivery.ui.screen.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.rememberScrollableState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,20 +21,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.fooddelivery.R
+import com.example.fooddelivery.data.ProductPreviewState
 import com.example.fooddelivery.ui.theme.AppTheme
 
 @Composable
 fun ProductPreviewSection(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    state:  ProductPreviewState
 ) {
     Box(modifier = modifier.height(IntrinsicSize.Max)){
         ProductBackground(
             modifier = Modifier.padding(bottom = 24.dp)
         )
         Content(
+            state = state,
             modifier = Modifier.statusBarsPadding()
                 .padding(top = 24.dp)
         )
@@ -63,13 +64,14 @@ private fun ProductBackground(
 }
 
 @Composable
-fun Content(
-    modifier: Modifier = Modifier
+private fun Content(
+    modifier: Modifier = Modifier,
+    state: ProductPreviewState
 ) {
     ConstraintLayout(
         modifier = modifier.fillMaxWidth()
     ) {
-        val (actionBar, highlights,prosuctImg) = createRefs()
+        val (actionBar, highlights,productImg) = createRefs()
         ActionBar(
             headline = "Mr.Cheezy",
             modifier = Modifier
@@ -83,11 +85,16 @@ fun Content(
             contentScale = ContentScale.FillHeight,
             modifier = Modifier
                 .height(256.dp)
-                .constrainAs(prosuctImg){
+                .constrainAs(productImg){
                     end.linkTo(parent.end)
                     top.linkTo(anchor = actionBar.bottom, margin = 20.dp)
                 }
         )
+        ProductHighlights(highlights = state.highlights,
+            modifier = Modifier.constrainAs(highlights){
+                start.linkTo(anchor = parent.start, margin = 19.dp)
+                top.linkTo(productImg.top)
+            })
     }
 }
 
@@ -130,5 +137,19 @@ private fun CloseButton(
                 modifier = Modifier.size(24.dp)
             )
         }
+    }
+}
+
+
+
+@Preview(showBackground = true, backgroundColor = 0xFFF5F5F5)
+@Composable
+fun ProductPreviewSectionPreview() {
+    AppTheme {
+        ProductPreviewSection(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        )
     }
 }
