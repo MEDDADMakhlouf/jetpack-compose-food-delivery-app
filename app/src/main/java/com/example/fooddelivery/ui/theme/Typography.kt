@@ -7,6 +7,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.example.fooddelivery.R
 
 private val UnboundedFontFamily = FontFamily(
@@ -38,5 +39,44 @@ val LocalAppTypoGraphy = staticCompositionLocalOf {
         label = TextStyle.Default
 
         )
-
 }
+
+val extendedTypography = AppTypography(
+    headline = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 32.sp,
+        fontWeight = FontWeight.Normal
+    ),
+    titleLarge = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Normal
+    ),
+    titleMedium = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Normal
+    ),
+    titleSmall = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Normal
+    ),
+    body = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Normal
+    ),
+    bodySmall = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Normal
+    ),
+    label = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 11.sp,
+        fontWeight = FontWeight.Light
+    ),
+
+
+)
