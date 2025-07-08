@@ -1,4 +1,4 @@
-package com.example.fooddelivery.ui.screen.component
+package com.example.fooddelivery.data
 
 import androidx.annotation.DrawableRes
 import com.example.fooddelivery.R
