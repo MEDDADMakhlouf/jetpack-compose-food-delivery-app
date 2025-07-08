@@ -13,12 +13,15 @@ import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.unit.dp
 import com.example.fooddelivery.data.ProductPreviewState
 import com.example.fooddelivery.ui.screen.component.FlavorSection
+import com.example.fooddelivery.ui.screen.component.ProductFlavorState
 import com.example.fooddelivery.ui.screen.component.ProductPreviewSection
+import com.example.fooddelivery.ui.screen.component.productFlavorData
 
 @Composable
 fun ProductDetailsScreen(
     modifier: Modifier = Modifier,
-    productPreviewState: ProductPreviewState = ProductPreviewState()
+    productPreviewState: ProductPreviewState = ProductPreviewState(),
+    productFlavorState: List<ProductFlavorState> = productFlavorData
 ) {
     val scrollableState = rememberScrollState()
     Column(
@@ -29,7 +32,8 @@ fun ProductDetailsScreen(
         )
         Spacer(modifier = Modifier.height(6.dp))
         FlavorSection(
-            modifier = Modifier.padding(18.dp)
+            modifier = Modifier.padding(18.dp),
+            data = productFlavorState
         )
     }
 }
