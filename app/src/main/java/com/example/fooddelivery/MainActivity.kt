@@ -21,10 +21,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                // Use a Surface to provide a background for your screen
-                Surface(modifier = Modifier.fillMaxSize()) {
-                    ProductDetailsScreen() // Call your ProductDetailsScreen composable here
-                }
+              ProductDetailsScreen(
+                  onCheckOutClicked = {},
+                  onRemoveItemClicked = {},
+                  onAddItemClicked = {}
+
+              )
             }
         }
     }
