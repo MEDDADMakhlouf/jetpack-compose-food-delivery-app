@@ -1,6 +1,5 @@
 package com.example.fooddelivery.ui.screen.component
 
-import android.graphics.Color
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -16,24 +15,25 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.fooddelivery.R
+import com.example.fooddelivery.data.OrderState
 import com.example.fooddelivery.ui.theme.AppTheme
 
 @Composable
 fun OrderActionBar(
     modifier: Modifier = Modifier,
+    state: OrderState,
     onAddItemClicked: () -> Unit,
-    onRemoveItemClicked : () -> Unit ,
+    onRemoveItemClicked : () -> Unit,
     onCheckOutClicked : () -> Unit
 
 ) {
@@ -57,9 +57,15 @@ fun OrderActionBar(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ){
                 Selector(
-                    amount = 0,
+                    amount = state.amount,
                     onAddItemClicked = onAddItemClicked,
-                    onRemoveItemClicked = onRemoveItemClicked
+                    onRemoveItemClicked = onRemoveItemClicked,
+                    modifier = Modifier.weight(weight = 1f)
+                )
+                Cart(
+                    totalPrice = state.totalPrice,
+                    onClicked = onAddItemClicked,
+                    modifier = Modifier.weight(weight = 1f)
                 )
             }
         }
@@ -112,8 +118,10 @@ Row (
 private fun SelectorButton(
     modifier: Modifier = Modifier,
     @DrawableRes iconRes: Int,
-    containerColor: Color,
+//    containerColor: Color,
+//    contentColor: Color,
     contentColor: Color,
+    containerColor: Color,
     onClicked: () -> Unit
 ) {
     Surface(

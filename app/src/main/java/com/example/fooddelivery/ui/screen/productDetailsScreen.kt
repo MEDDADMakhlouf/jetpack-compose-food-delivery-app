@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.unit.dp
+import com.example.fooddelivery.data.OrderData
+import com.example.fooddelivery.data.OrderState
 import com.example.fooddelivery.data.ProductDescriptionData
 import com.example.fooddelivery.data.ProductPreviewState
 import com.example.fooddelivery.ui.screen.component.FlavorSection
@@ -34,7 +36,11 @@ fun ProductDetailsScreen(
     productPreviewState: ProductPreviewState = ProductPreviewState(),
     productFlavors: List<ProductFlavorState> = productFlavorData,
     productNutritionState: ProductNutritionState = ProductNutritionData,
-    productDescription: String = ProductDescriptionData
+    productDescription: String = ProductDescriptionData,
+    orderState: OrderState = OrderData,
+    onAddItemClicked: () -> Unit,
+    onRemoveItemClicked: () -> Unit,
+    onCheckOutClicked: () -> Unit
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -48,9 +54,10 @@ fun ProductDetailsScreen(
 
         )
         OrderActionBar(
+            state = orderState,
             onAddItemClicked = onAddItemClicked,
             onRemoveItemClicked = onRemoveItemClicked,
-            onCheckOutClicked =onChangeOutClicked,
+            onCheckOutClicked =onCheckOutClicked,
             modifier = Modifier
                 .navigationBarsPadding()
                 .padding(
@@ -79,7 +86,7 @@ fun Content(modifier: Modifier = Modifier,
         Spacer(modifier = Modifier.height(6.dp))
         FlavorSection(
             modifier = Modifier.padding(18.dp),
-            data = productFlavorState
+            data = productFlavors
         )
         Spacer(
             modifier = Modifier.height(16.dp)
@@ -96,7 +103,7 @@ fun Content(modifier: Modifier = Modifier,
             modifier = Modifier
                 .navigationBarsPadding()
                 .padding(horizontal = 18.dp)
-                .padding(bottom = 24.dp)
+                .padding(bottom = 128.dp)
         )
     }
 }
