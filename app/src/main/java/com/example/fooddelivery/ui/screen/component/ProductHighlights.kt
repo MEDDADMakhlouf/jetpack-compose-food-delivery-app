@@ -1,7 +1,5 @@
 package com.example.fooddelivery.ui.screen.component
 
-import android.graphics.Color
-import android.text.Highlights
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.fooddelivery.data.ProductHighlightState
@@ -77,6 +76,10 @@ private object HighlightDefaults{
         ProductHighlightType.PRIMARY -> HighlightColors(
             containerColor = AppTheme.colors.highlightSurface,
             contentColor = AppTheme.colors.onActionSurface
+        )
+        ProductHighlightType.SECONDARY -> HighlightColors(
+            containerColor = AppTheme.colors.secondarySurface, // You might want different colors here
+            contentColor = AppTheme.colors.onSecondarySurface // You might want different colors here
         )
     }
 }

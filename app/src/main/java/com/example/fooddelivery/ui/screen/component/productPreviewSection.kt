@@ -142,14 +142,3 @@ private fun CloseButton(
 
 
 
-@Preview(showBackground = true, backgroundColor = 0xFFF5F5F5)
-@Composable
-fun ProductPreviewSectionPreview() {
-    AppTheme {
-        ProductPreviewSection(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        )
-    }
-}
