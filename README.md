@@ -47,8 +47,8 @@ It has **no backend** or real data – it’s a design-focused app.
    ```bash
    git clone https://github.com/MEDDADMakhlouf/jetpack-compose-food-delivery-app
 
-👤 Author
+## 👤 Author
 
-Made by MEDDAD Makhlouf 
-🔗 LinkedIn
-📧 Email: makhloufmeddad@example.com
+Made by **MEDDAD Makhlouf**  
+🔗 [LinkedIn](https://www.linkedin.com/in/makhlouf-meddad-6674332a5/)  
+📧 Email: makhloufmeddad@gmail.com
