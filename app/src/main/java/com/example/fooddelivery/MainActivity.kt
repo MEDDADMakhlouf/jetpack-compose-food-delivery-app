@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.example.fooddelivery.data.OrderState
@@ -19,10 +19,12 @@ private const val PRODUCT_CURRENCY = "$"
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
         enableEdgeToEdge()
+
         setContent {
             AppTheme {
-                var amount by remember{ mutableStateOf(5) }
+                var amount by remember{ mutableIntStateOf(5) }
                 val totalPrice = remember {
                     derivedStateOf { amount * PRODUCT_PRICE_PER_UNIT }
                 }

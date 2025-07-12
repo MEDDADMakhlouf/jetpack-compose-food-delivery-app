@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -43,8 +44,9 @@ fun ProductDetailsScreen(
     onCheckOutClicked: () -> Unit
 ) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize() ,
         contentAlignment =  Alignment.BottomCenter
+
     ){
         Content(
             productPreviewState =productPreviewState,
@@ -69,16 +71,17 @@ fun ProductDetailsScreen(
 }
 
 @Composable
-fun Content(modifier: Modifier = Modifier,
+private fun Content(modifier: Modifier = Modifier,
         productPreviewState: ProductPreviewState ,
             productFlavors: List<ProductFlavorState> ,
             productNutritionState: ProductNutritionState ,
             productDescription: String
 
 ) {
-    val scrollableState = rememberScrollState()
+    val scrollState = rememberScrollState()
     Column(
-        modifier = modifier.verticalScroll(scrollableState)
+        modifier = modifier
+            .verticalScroll(scrollState)
     ) {
         ProductPreviewSection(
             state = productPreviewState
@@ -104,6 +107,9 @@ fun Content(modifier: Modifier = Modifier,
                 .navigationBarsPadding()
                 .padding(horizontal = 18.dp)
                 .padding(bottom = 128.dp)
+        )
+        Spacer(
+            modifier = Modifier.height(128.dp)
         )
     }
 }
