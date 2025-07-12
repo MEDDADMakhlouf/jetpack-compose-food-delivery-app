@@ -72,14 +72,15 @@ private object HighlightDefaults{
         containerColor = Color.Unspecified
         )
     @Composable
-    fun colors (type: ProductHighlightType): HighlightColors = when (type){
-        ProductHighlightType.PRIMARY -> HighlightColors(
-            containerColor = AppTheme.colors.highlightSurface,
+    fun colors(type: ProductHighlightType): HighlightColors = when (type) {
+        ProductHighlightType.SECONDARY -> HighlightColors(
+            containerColor = AppTheme.colors.actionSurface,
             contentColor = AppTheme.colors.onActionSurface
         )
-        ProductHighlightType.SECONDARY -> HighlightColors(
-            containerColor = AppTheme.colors.secondarySurface, // You might want different colors here
-            contentColor = AppTheme.colors.onSecondarySurface // You might want different colors here
+
+        ProductHighlightType.PRIMARY -> HighlightColors(
+            containerColor = AppTheme.colors.highlightSurface,
+            contentColor = AppTheme.colors.onHighlightSurface
         )
     }
 }

@@ -3,6 +3,7 @@ package com.example.fooddelivery.ui.screen.component
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,7 +19,8 @@ fun ProductDescriptionSection(
     productDescription: String
 ) {
     Column (
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth()
+            .padding(vertical = 12.dp) ,
         verticalArrangement = Arrangement.spacedBy(11.dp),
         horizontalAlignment = Alignment.Start
     ){
@@ -32,7 +34,9 @@ fun ProductDescriptionSection(
             style = AppTheme.typography.body,
             color = AppTheme.colors.onBackground,
             textAlign = TextAlign.Justify,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .padding(horizontal = 12.dp)
+                .fillMaxWidth()
         )
     }
 }

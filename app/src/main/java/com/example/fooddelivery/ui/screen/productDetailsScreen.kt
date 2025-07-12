@@ -107,6 +107,7 @@ private fun Content(modifier: Modifier = Modifier,
                 .navigationBarsPadding()
                 .padding(horizontal = 18.dp)
                 .padding(bottom = 128.dp)
+
         )
         Spacer(
             modifier = Modifier.height(128.dp)

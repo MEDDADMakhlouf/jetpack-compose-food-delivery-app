@@ -106,8 +106,8 @@ Row (
     )
     SelectorButton(
         iconRes = R.drawable.ic_plus,
-        contentColor = AppTheme.colors.secondarySurface,
-        containerColor = AppTheme.colors.onSecondarySurface,
+        contentColor = AppTheme.colors.onSecondarySurface ,
+        containerColor = AppTheme.colors.secondarySurface,
         onClicked = onAddItemClicked
     )
 }
