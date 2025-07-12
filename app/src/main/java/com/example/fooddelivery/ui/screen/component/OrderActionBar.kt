@@ -106,7 +106,7 @@ Row (
     )
     SelectorButton(
         iconRes = R.drawable.ic_plus,
-        contentColor = AppTheme.colors.onSecondarySurface,
+        contentColor = AppTheme.colors.secondarySurface,
         containerColor = AppTheme.colors.onSecondarySurface,
         onClicked = onAddItemClicked
     )
@@ -118,8 +118,6 @@ Row (
 private fun SelectorButton(
     modifier: Modifier = Modifier,
     @DrawableRes iconRes: Int,
-//    containerColor: Color,
-//    contentColor: Color,
     contentColor: Color,
     containerColor: Color,
     onClicked: () -> Unit
